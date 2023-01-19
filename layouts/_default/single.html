@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="markdown">
+{{ .Content }}
+</div>
+
+{{ partial "backlinks.html" (dict "page" .) }}
+
+{{ if isset .Params "book" }}
+{{ partial "book.html" . }}
+{{ end }}
+
+{{ partial "meta.html" . }}
+{{ end }}

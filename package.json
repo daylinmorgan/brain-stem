@@ -1,0 +1,18 @@
+{
+  "name": "brain-stem",
+  "version": "0.0.1",
+  "author": "Daylin Morgan",
+  "license": "MIT",
+  "scripts": {
+    "dev": "unocss \"layouts/**/*.html\" --watch -o assets/css/uno.css",
+    "build": "unocss \"layouts/**/*.html\" -o assets/css/uno.css"
+  },
+  "devDependencies": {
+    "@catppuccin/palette": "^0.1.5",
+    "@iconify-json/openmoji": "^1.1.21",
+    "@unocss/cli": "^0.48.4",
+    "@unocss/reset": "^0.48.4",
+    "@unocss/transformer-directives": "^0.48.4",
+    "unocss": "^0.48.4"
+  }
+}

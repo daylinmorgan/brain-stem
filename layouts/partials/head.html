@@ -1,0 +1,6 @@
+<head>
+  {{ $css:= resources.Get "css/uno.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" >
+  <style>
+  </style>
+</head>

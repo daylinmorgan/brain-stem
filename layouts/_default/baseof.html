@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body class = "font-mono bg-ctp-crust text-ctp-text max-w-3xl mx-auto">
+        {{- partial "header.html" . -}}
+        <div class="mx-auto bg-ctp-base rounded-md p-4">
+        {{- block "main" . }}{{- end }}
+        </div>
+        {{- partial "footer.html" . -}}
+    </body>
+</html>
