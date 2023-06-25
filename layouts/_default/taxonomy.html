@@ -1,17 +1,16 @@
 {{ define "main" }}
 <main>
-    <article>
+    <div class="mx-auto bg-ctp-base rounded-md p-4">
         <header class="my-5">
             <h1 class="text-5xl">{{.Title}}</h1>
         </header>
-        {{.Content}}
-    </article>
-    <ul>
-    {{ range .Pages }}
-        <li>
-            <a href="{{.Permalink}}">{{.Lastmod.Format "2006.01.02"}} | {{.Title}}</a>
-        </li>
-    {{ end }}
-    </ul>
+        <ul>
+        {{ range .Pages }}
+            <li>
+                <a href="{{.Permalink}}">{{.Lastmod.Format "2006.01.02"}} | {{.Title}}</a>
+            </li>
+        {{ end }}
+        </ul>
+    </div>
 </main>
 {{ end }}

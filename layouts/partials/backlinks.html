@@ -10,7 +10,7 @@
 {{ end }}
 
 {{ with $backlinks }}
-    <section class="max-w-6xl mx-auto rounded-md p-4 bg-ctp-crust font-mono">
+    <section class="max-w-6xl">
         {{ printf "%s" ($.heading | default "<h2>Backlinks:</h2>") | safeHTML }}
         <nav>
             <ul>

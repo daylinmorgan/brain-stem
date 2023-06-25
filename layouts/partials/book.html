@@ -1,13 +1,13 @@
 {{/* TODO: fetch all related books similar to backinks*/}}
-<section class="max-w-6xl mx-auto rounded-md p-4 bg-ctp-crust font-mono">
+<section class="max-w-6xl mx-auto my-2 rounded-md p-4 bg-ctp-mantle font-mono">
     <h2>Book Metadata</h2>
     {{ with .Params.book }}
     <ul>
         {{ if .author}}
-        <li>-  <span class="font-bold">author</span>: {{ .author}}</li>
+        <li><span class="font-bold">author</span>: {{ .author}}</li>
         {{ end }}
         {{ if .tags }}
-        <li>-  <span class="font-bold">tags</span>: {{ delimit .tags ", " ", and " }}</li>
+        <li><span class="font-bold">tags</span>: {{ delimit .tags ", " ", and " }}</li>
         {{ end }}
     </ul>
     {{ end }}

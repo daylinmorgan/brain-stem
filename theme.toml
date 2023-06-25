@@ -1,14 +1,8 @@
-
 name = "Brain Stem"
 license = "MIT"
 licenselink = "https://github.com/daylinmorgan/brain-stem/blob/main/LICENSE"
 description = "hugo theme for your second brain (zettlekasten)"
-# homepage = "http://example.com/"
-# tags = []
-# features = []
-# min_version = "0.41.0"
 
 [author]
   name = "Daylin Morgan"
   homepage = "https://dayl.in"
-

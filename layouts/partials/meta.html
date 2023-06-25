@@ -6,11 +6,10 @@
     {{ end }}
 {{ end }}  */}}
 
-<section class="max-w-6xl mx-auto rounded-md p-4 bg-ctp-crust font-mono">
-    <h2>Metadata</h2>
+<section class="max-w-6xl mx-25 p-4 bg-ctp-crust font-mono text-s">
     <ul>
         {{ if .Params.tags }}
-        <li>-  <span class="font-bold">tags</span>:
+        <li><span class="font-bold">tags</span>:
         {{ range $key, $value := .Params.tags }}
         <a class="link" href="/tags/{{ $value | urlize }}">{{- $value -}}</a>
         {{- if ne $key (sub (len $.Params.tags) 1) }},{{ else }}{{ end }}
@@ -18,8 +17,8 @@
         </li>
         {{ end }}
         {{ with .GitInfo }}
-        <li>-  <span class="font-bold">modified</span>: {{ .AuthorDate }}</li>
-        <li>-  <span class="font-bold">hash</span>: {{ .Hash }}</li>
+        <li><span class="font-bold">modified</span>: {{ .AuthorDate }}</li>
+        <li><span class="font-bold">hash</span>: {{ .Hash }}</li>
         {{ end }}
     </ul>
 </section>

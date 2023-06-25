@@ -20,9 +20,13 @@ export default defineConfig({
     a:hover {
       color: ${theme.colors.ctp.red}
     }
-    a:not([href*='brain.dayl.in']):not([href^='#']):not([href^='/']):after {
-      content: '🔗'
+    a:not([href*='brain.dayl.in']):not([href^='#']):not([href^='/']):not([href*='localhost']):after {
+      content: '🔗';
     }
+    .markdown {
+      color: var(--un-prose-body);
+      max-width: 100ch;
+      }
     `,
     },
   ],
@@ -36,18 +40,18 @@ export default defineConfig({
       // cssExtend is an object with CSS selector as key and
       // CSS declaration block as value like writing normal CSS.
       cssExtend: {
-        // code: {
-        //   color: "#8b5cf6",
-        // },
+        code: {
+          color: variants.mocha.mauve.hex,
+        },
         "a:hover": {
-          color: "#f43f5e",
+          color: variants.mocha.red.hex,
         },
         "a:visited": {
           color: "none",
         },
         ...[
           ["h1", variants.mocha.sky.hex],
-          ["h2", variants.mocha.red.hex],
+          ["h2", variants.mocha.green.hex],
           ["h3", variants.mocha.flamingo.hex],
           ["h4", variants.mocha.maroon.hex],
         ].reduce((acc, [header, color]) => {

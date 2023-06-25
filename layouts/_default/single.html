@@ -1,4 +1,6 @@
 {{ define "main" }}
+<div class="bg-ctp-base rounded-md p-4">
+
 <div class="markdown">
 {{ .Content }}
 </div>
@@ -9,5 +11,6 @@
 {{ partial "book.html" . }}
 {{ end }}
 
+</div>
 {{ partial "meta.html" . }}
 {{ end }}
