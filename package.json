@@ -8,11 +8,11 @@
     "build": "unocss \"layouts/**/*.html\" -o assets/css/uno.css"
   },
   "devDependencies": {
-    "@catppuccin/palette": "^0.1.5",
-    "@iconify-json/openmoji": "^1.1.21",
-    "@unocss/cli": "^0.48.4",
-    "@unocss/reset": "^0.48.4",
-    "@unocss/transformer-directives": "^0.48.4",
-    "unocss": "^0.48.4"
+    "@catppuccin/palette": "^0.1.8",
+    "@iconify-json/openmoji": "^1.1.28",
+    "@unocss/cli": "^0.53.4",
+    "@unocss/reset": "^0.53.4",
+    "@unocss/transformer-directives": "^0.53.4",
+    "unocss": "^0.53.4"
   }
 }

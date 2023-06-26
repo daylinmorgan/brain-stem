@@ -6,7 +6,7 @@
     {{ end }}
 {{ end }}  */}}
 
-<section class="max-w-6xl mx-25 p-4 bg-ctp-crust font-mono text-s">
+<section class="p-4 bg-ctp-crust font-mono md:text-s text-xs">
     <ul>
         {{ if .Params.tags }}
         <li><span class="font-bold">tags</span>:
@@ -18,7 +18,7 @@
         {{ end }}
         {{ with .GitInfo }}
         <li><span class="font-bold">modified</span>: {{ .AuthorDate }}</li>
-        <li><span class="font-bold">hash</span>: {{ .Hash }}</li>
+        <li><span class="font-bold">hash</span>: {{ .Hash }}</span></li>
         {{ end }}
     </ul>
 </section>

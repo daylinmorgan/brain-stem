@@ -87,4 +87,11 @@ export default defineConfig({
       },
     },
   },
+ layers: {
+  reset: -1,
+  components: 0,
+  default: 1,
+  utilities: 2,
+  'mycss':3
+}
 });
