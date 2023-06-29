@@ -1,0 +1,20 @@
+<script>
+window.store = {
+    // You can specify your blog section only:
+    {{ range .Site.RegularPages }}
+    // You can use any unique identifier here
+    "{{ .Permalink }}": {
+        // You can customize your searchable fields using any .Page parameters
+        "title": "{{ .Title  }}",
+        "tags": [{{ range .Params.Tags }}"{{ . }}",{{ end }}],
+        "display": {{ .Content | truncate 200 }},
+        "content": {{ .Content | plainify }},
+        "url": "{{ .Permalink }}"
+    },
+    {{ end }}
+}
+</script>
+<!-- Include Lunr and code for your search function,
+which you'll write in the next section -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/search.js"></script>
