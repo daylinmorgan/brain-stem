@@ -1,20 +1,16 @@
 <script>
-window.store = {
-    // You can specify your blog section only:
+window.documents = [
     {{ range .Site.RegularPages }}
-    // You can use any unique identifier here
-    "{{ .Permalink }}": {
-        // You can customize your searchable fields using any .Page parameters
+    {
+        // use url as 'id' for minisearch
+        "id": "{{ .Permalink }}",
         "title": "{{ .Title  }}",
         "tags": [{{ range .Params.Tags }}"{{ . }}",{{ end }}],
         "display": {{ .Content | truncate 200 }},
         "content": {{ .Content | plainify }},
-        "url": "{{ .Permalink }}"
     },
     {{ end }}
-}
+]
 </script>
-<!-- Include Lunr and code for your search function,
-which you'll write in the next section -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src=" https://cdn.jsdelivr.net/npm/minisearch@6.1.0/dist/umd/index.min.js "></script>
 <script src="/js/search.js"></script>
