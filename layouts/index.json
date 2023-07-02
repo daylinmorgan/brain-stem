@@ -1,0 +1,29 @@
+{{- $data := newScratch -}}
+{{- $data.Add "searchIndex" slice -}}
+{{- $data.Set "pages" (where (where .Site.Pages "Kind" "page" ) "RelPermalink" "not in" (slice "/graph/" "/search/")) -}}
+{{- range $index, $element :=  $data.Get "pages" -}}
+    {{- $data.Add "searchIndex"
+            (
+            dict
+            "id" $index
+            "title" $element.Title
+            "uri" $element.Permalink
+            "tags" $element.Params.tags
+            "content" $element.Plain
+            "display" ($element.Content | truncate (default 100 .Site.Params.summaryLength))
+            ) -}}
+{{- end -}}
+{{- $data.Add "links" slice -}}
+{{- range $index, $element :=  $data.Get "pages" -}}
+    {{- $data.Set "path_base" $element.File.ContentBaseName -}}
+    {{- $data.Set "path_base_re" (printf `["/(]%s.md["/)]` ($data.Get "path_base" )) -}}
+    {{- range $sourceID, $source := $data.Get "pages" -}}{{/* TODO: use if statement about the ne relpermalink*/}}
+        {{- if (findRE ($data.Get "path_base_re") $source.RawContent 1) -}}
+            {{- $data.Add "links" (dict "source" $sourceID "target" $index) -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- (dict
+        "index" ($data.Get "searchIndex")
+        "links" ($data.Get "links")
+        ) | jsonify -}}

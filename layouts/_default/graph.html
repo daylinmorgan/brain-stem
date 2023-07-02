@@ -1,0 +1,38 @@
+{{ define "head"}}
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<style type="text/css">
+svg circle.node {
+  stroke-width: 1.5px;
+}
+
+svg line.link {
+  stroke: #6c7086;
+  stroke-opacity: .6;
+  stroke-width: 2px;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  visibility: hidden;
+  width: 100px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background:#1e1e2e;
+  border: 5px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+</style>
+{{ end }}
+{{ define "main" }}
+<div id="graph" class="h-full w-full bg-ctp-base rounded-md p-4">
+<div class="tooltip"></div>
+
+</div>
+
+{{ end }}
+{{ define "footer"}}
+{{- $js := resources.Get "js/graph.js" | minify | fingerprint -}}
+<script src="{{ $js.RelPermalink }}"></script>
+{{ end }}

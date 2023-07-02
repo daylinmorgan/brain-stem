@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 {{- partial "head.html" . -}}
+{{ block "head" .}}{{ end }}
 <body class = "font-mono bg-ctp-crust text-ctp-text md:max-w-3xl mx-5 md:mx-auto">
 
     {{- partial "header.html" . -}}
