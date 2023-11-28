@@ -48,10 +48,11 @@ export default defineConfig({
     },
   ],
   transformers: [transformerDirectives()],
-  shortcuts: [{ box: "max-w-6xl mx-auto rounded-md p-4",
-  		"nav-link": "md:p-1 px-0 border-b-2 border-transparent hover:b-ctp-red",
-		  "nav-menu-btn" :"cursor-pointer md:hidden flex items-center px-3 py-2"
- }],
+  shortcuts: [{
+    box: "max-w-6xl mx-auto rounded-md p-4",
+    "nav-link": "md:p-1 px-0 border-b-2 border-transparent hover:b-ctp-red",
+    "nav-menu-btn": "cursor-pointer md:hidden flex items-center px-3 py-2"
+  }],
   presets: [
     presetUno(),
     presetIcons(),
@@ -81,7 +82,7 @@ export default defineConfig({
           ["h4", variants.mocha.maroon.hex],
         ].reduce((acc, [header, color]) => {
           acc[header] = {
-            "font-size": "1.25 em",
+            "font-size": "1.25em",
             color: color,
           };
           return acc;
@@ -92,10 +93,18 @@ export default defineConfig({
       provider: "google", // default provider
       fonts: {
         // these will extend the default theme
-        sans: "Recursive",
-        mono: "Recursive",
+        // sans: "Recursive",
+        // mono: "Recursive:wght,CASL,MONO@400,0,1;700,1,1;1000,1,1"
       },
     }),
+  ],
+  rules: [
+    ["font-mono", {
+      "font-family": "'Recursive', monospace;",
+      "font-variation-settings": "'MONO' 1;"
+    }],
+    ["font-casual", { "font-variation-settings": "'CASL' 1;" }],
+    ["font-mono-casual", { "font-variation-settings": "'MONO' 1, 'CASL' 1;" }],
   ],
   theme: {
     colors: {

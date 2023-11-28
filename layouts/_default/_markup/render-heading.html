@@ -1,5 +1,5 @@
 {{/*  TODO: remove space between link and anchor  */}}
-<h{{ .Level }} id="{{ .Anchor | safeURL }}">
+<h{{ .Level }} id="{{ .Anchor | safeURL }}" class="font-mono-casual font-black">
     <a href="#{{ .Anchor | safeURL }}">
         {{- strings.Repeat .Level "#" -}}
     </a>
