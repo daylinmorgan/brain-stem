@@ -2,6 +2,9 @@
 <div class="bg-ctp-base rounded-md p-4">
 
 <div class="markdown">
+{{ with .Title }}
+<h1 class = "font-mono-casual font-black"> {{ . }}</h1>
+{{ end }}
 {{ .Content }}
 </div>
 
