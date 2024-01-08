@@ -4,21 +4,27 @@ import transformerDirectives from "@unocss/transformer-directives";
 import presetWebFonts from "@unocss/preset-web-fonts";
 import presetUno from "@unocss/preset-uno";
 import presetTypography from "@unocss/preset-typography";
-import { variants } from "@catppuccin/palette";
 import presetIcons from "@unocss/preset-icons";
 
+// import { variants } from "@catppuccin/palette";
+import { flavors, flavorEntries } from "@catppuccin/palette";
 
 const generatePalette = () => {
-  const colors = {};
+  const colors = flavors.mocha.colors;
+  const palette = {};
 
-  Object.keys(variants.mocha).forEach((colorName) => {
-    const sanitizedName = colorName.replace('0', 'zero').replace('1', 'one').replace('2', 'two');
-    colors[sanitizedName] = variants.mocha[colorName].hex;
+  Object.keys(colors).forEach((colorName) => {
+    const sanitizedName = colorName
+      .replace("0", "zero")
+      .replace("1", "one")
+      .replace("2", "two");
+    palette[sanitizedName] = colors[colorName].hex;
   });
 
-  return colors;
+  return palette;
 };
 
+const palette = generatePalette();
 
 export default defineConfig({
   preflights: [
@@ -44,15 +50,16 @@ export default defineConfig({
       max-width: 100ch;
       }
     `,
-
     },
   ],
   transformers: [transformerDirectives()],
-  shortcuts: [{
-    box: "max-w-6xl mx-auto rounded-md p-4",
-    "nav-link": "md:p-1 px-0 border-b-2 border-transparent hover:b-ctp-red",
-    "nav-menu-btn": "cursor-pointer md:hidden flex items-center px-3 py-2"
-  }],
+  shortcuts: [
+    {
+      box: "max-w-6xl mx-auto rounded-md p-4",
+      "nav-link": "md:p-1 px-0 border-b-2 border-transparent hover:b-ctp-red",
+      "nav-menu-btn": "cursor-pointer md:hidden flex items-center px-3 py-2",
+    },
+  ],
   presets: [
     presetUno(),
     presetIcons(),
@@ -66,20 +73,20 @@ export default defineConfig({
         //     content: "",
         // },
         code: {
-          color: variants.mocha.mauve.hex,
-          background: variants.mocha.crust.hex,
+          color: palette.mauve.hex,
+          background: palette.crust.hex,
         },
         "a:hover": {
-          color: variants.mocha.red.hex,
+          color: palette.red.hex,
         },
         "a:visited": {
           color: "none",
         },
         ...[
-          ["h1", variants.mocha.sky.hex],
-          ["h2", variants.mocha.green.hex],
-          ["h3", variants.mocha.flamingo.hex],
-          ["h4", variants.mocha.maroon.hex],
+          ["h1", palette.sky.hex],
+          ["h2", palette.green.hex],
+          ["h3", palette.flamingo.hex],
+          ["h4", palette.maroon.hex],
         ].reduce((acc, [header, color]) => {
           acc[header] = {
             "font-size": "1.25em",
@@ -99,10 +106,13 @@ export default defineConfig({
     }),
   ],
   rules: [
-    ["font-mono", {
-      "font-family": "'Recursive', monospace;",
-      "font-variation-settings": "'MONO' 1;"
-    }],
+    [
+      "font-mono",
+      {
+        "font-family": "'Recursive', monospace;",
+        "font-variation-settings": "'MONO' 1;",
+      },
+    ],
     ["font-casual", { "font-variation-settings": "'CASL' 1;" }],
     ["font-mono-casual", { "font-variation-settings": "'MONO' 1, 'CASL' 1;" }],
   ],
