@@ -6,13 +6,12 @@ import presetUno from "@unocss/preset-uno";
 import presetTypography from "@unocss/preset-typography";
 import presetIcons from "@unocss/preset-icons";
 
-// import { variants } from "@catppuccin/palette";
 import { flavors, flavorEntries } from "@catppuccin/palette";
 
-const generatePalette = () => {
+// not possible to use colors with letter and hyphen..
+const palette = (() => {
   const colors = flavors.mocha.colors;
   const palette = {};
-
   Object.keys(colors).forEach((colorName) => {
     const sanitizedName = colorName
       .replace("0", "zero")
@@ -22,9 +21,7 @@ const generatePalette = () => {
   });
 
   return palette;
-};
-
-const palette = generatePalette();
+})();
 
 export default defineConfig({
   preflights: [
@@ -35,7 +32,7 @@ export default defineConfig({
     },
     {
       layer: "mycss",
-      getCSS: ({ theme }) => `
+      getCSS: ({theme}) => `
     #menu-toggle:checked + #menu {
 		  display: block;
 		}
@@ -73,20 +70,20 @@ export default defineConfig({
         //     content: "",
         // },
         code: {
-          color: palette.mauve.hex,
-          background: palette.crust.hex,
+          color: palette.mauve,
+          background: palette.crust,
         },
         "a:hover": {
-          color: palette.red.hex,
+          color: palette.red,
         },
         "a:visited": {
           color: "none",
         },
         ...[
-          ["h1", palette.sky.hex],
-          ["h2", palette.green.hex],
-          ["h3", palette.flamingo.hex],
-          ["h4", palette.maroon.hex],
+          ["h1", palette.sky],
+          ["h2", palette.green],
+          ["h3", palette.flamingo],
+          ["h4", palette.maroon],
         ].reduce((acc, [header, color]) => {
           acc[header] = {
             "font-size": "1.25em",
@@ -118,7 +115,7 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      ctp: generatePalette(),
+      ctp: palette,
     },
   },
   layers: {
