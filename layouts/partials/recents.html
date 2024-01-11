@@ -1,0 +1,13 @@
+<div>
+  <h2 class="text-5xl font-mono-casual font-black my-5">Recent Thoughts:</h2>
+  <ul class="list-none">
+    {{- range ( site.RegularPages.ByLastmod.Reverse | first (default 10 site.Params.recentThoughtsNum ))}}
+  <li>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    {{ range .Params.tags }}
+    <a href="{{ site.BaseURL}}/tags/{{.}}" class="text-ctp-surfaceone">{{.}}</a>
+    {{ end }}
+  </li>
+  {{- end }}
+  </ul>
+</div>

@@ -1,7 +1,10 @@
 {{ define "main" }}
 <div class="bg-ctp-base rounded-md p-4">
-    <div class="markdown">
-        {{ .Content }}
-    </div>
+  <div class="markdown">
+    {{ .Content }}
+  </div>
+  {{ if site.Params.recentThoughts }}
+    {{partial "recents.html" . }}
+  {{ end }}
 </div>
 {{ end }}
