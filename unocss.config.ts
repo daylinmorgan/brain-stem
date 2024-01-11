@@ -23,6 +23,7 @@ const palette = (() => {
   return palette;
 })();
 
+
 export default defineConfig({
   preflights: [
     {
@@ -33,6 +34,26 @@ export default defineConfig({
     {
       layer: "mycss",
       getCSS: ({theme}) => `
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: ${theme.colors.ctp.crust};
+        border-radius: 5px;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: ${theme.colors.ctp.mantle};
+        border: 1px solid transparent;
+        border-color: ${theme.colors.ctp.rosewater};
+        border-radius: 5px;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: ${theme.colors.ctp.roswater};
+    }
     #menu-toggle:checked + #menu {
 		  display: block;
 		}
@@ -46,6 +67,11 @@ export default defineConfig({
       color: var(--un-prose-body);
       max-width: 100ch;
       }
+
+    /* the chroma style uses base which I use for the panel background */
+    .highlight code span, .highlight pre, pre, code {
+      background-color: ${theme.colors.ctp.mantle} !important;
+    }
     `,
     },
   ],
@@ -71,7 +97,7 @@ export default defineConfig({
         // },
         code: {
           color: palette.mauve,
-          background: palette.crust,
+          "background-color": palette.crust,
         },
         "a:hover": {
           color: palette.red,
