@@ -2,9 +2,11 @@
 <div class="bg-ctp-base rounded-md p-4">
 
 <div class="markdown">
-{{ with .Title }}
-<h1 class = "font-mono-casual font-black"> {{ . }}</h1>
-{{ end }}
+  <h1 class="font-mono-casual font-black">
+      <a href="{{ .Permalink }}">#</a>
+      {{ .Title }}
+  </h1>
+
 {{ .Content }}
 </div>
 
