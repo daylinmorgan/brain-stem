@@ -22,7 +22,7 @@ fetch("/index.json")
         resultHtml +=
           '<li><div class="bg-ctp-base rounded-md p-2 my-2 markdown">';
         resultHtml +=
-          '<h1 class = "font-mono-casual font-black">' + item.title + "</h1>";
+          '<h1 class = "font-mono-casual font-black"> # ' + item.title + "</h1>";
         resultHtml += item.display;
         resultHtml += '<a href="' + item.uri + '">Read more!</a>';
         resultHtml += "<div></li>";
