@@ -1,28 +1,26 @@
 import fs from "fs/promises";
-import { defineConfig } from "unocss";
-import transformerDirectives from "@unocss/transformer-directives";
-import presetWebFonts from "@unocss/preset-web-fonts";
-import presetUno from "@unocss/preset-uno";
-import presetTypography from "@unocss/preset-typography";
-import presetIcons from "@unocss/preset-icons";
+import { flavors } from "@catppuccin/palette";
+import {
+  defineConfig,
+  presetUno,
+  presetIcons,
+  presetTypography,
+} from "unocss";
 
-import { flavors, flavorEntries } from "@catppuccin/palette";
-
-// not possible to use colors with letter and hyphen..
-const palette = (() => {
-  const colors = flavors.mocha.colors;
-  const palette = {};
-  Object.keys(colors).forEach((colorName) => {
+const generatePalette = (): { [key: string]: string } => {
+  const colors: { [key: string]: string } = {};
+  Object.keys(flavors.mocha.colors).forEach((colorName) => {
     const sanitizedName = colorName
       .replace("0", "zero")
       .replace("1", "one")
       .replace("2", "two");
-    palette[sanitizedName] = colors[colorName].hex;
+    colors[sanitizedName] = flavors.mocha.colors[colorName].hex;
   });
 
-  return palette;
-})();
+  return colors;
+};
 
+const catppuccinColors = generatePalette();
 
 export default defineConfig({
   preflights: [
@@ -75,7 +73,6 @@ export default defineConfig({
     `,
     },
   ],
-  transformers: [transformerDirectives()],
   shortcuts: [
     {
       box: "max-w-6xl mx-auto rounded-md p-4",
@@ -96,20 +93,20 @@ export default defineConfig({
         //     content: "",
         // },
         code: {
-          color: palette.mauve,
-          "background-color": palette.crust,
+          color: catppuccinColors.mauve,
+          "background-color": catppuccinColors.crust,
         },
         "a:hover": {
-          color: palette.red,
+          color: catppuccinColors.red,
         },
         "a:visited": {
           color: "none",
         },
         ...[
-          ["h1", palette.sky],
-          ["h2", palette.green],
-          ["h3", palette.flamingo],
-          ["h4", palette.maroon],
+          ["h1", catppuccinColors.sky],
+          ["h2", catppuccinColors.green],
+          ["h3", catppuccinColors.flamingo],
+          ["h4", catppuccinColors.maroon],
         ].reduce((acc, [header, color]) => {
           acc[header] = {
             "font-size": "1.25em",
@@ -117,14 +114,6 @@ export default defineConfig({
           };
           return acc;
         }, {}),
-      },
-    }),
-    presetWebFonts({
-      provider: "google", // default provider
-      fonts: {
-        // these will extend the default theme
-        // sans: "Recursive",
-        // mono: "Recursive:wght,CASL,MONO@400,0,1;700,1,1;1000,1,1"
       },
     }),
   ],
@@ -141,7 +130,7 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      ctp: palette,
+      ctp: catppuccinColors,
     },
   },
   layers: {
