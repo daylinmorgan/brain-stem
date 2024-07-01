@@ -1,0 +1,4 @@
+a[href^="https://"]:not([href*="{{ site.BaseURL }}"]):after {
+  content: "\1F517"; /* link symbol */
+}
+

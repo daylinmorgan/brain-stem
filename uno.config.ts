@@ -58,14 +58,10 @@ export default defineConfig({
     a:hover {
       color: ${theme.colors.ctp.red}
     }
-    a:not([href*='brain.dayl.in']):not([href^='#']):not([href^='/']):not([href*='localhost']):after {
-      content: '🔗';
-    }
     .markdown {
       color: var(--un-prose-body);
       max-width: 100ch;
-      }
-
+     }
     /* the chroma style uses base which I use for the panel background */
     .highlight code span, .highlight pre, pre, code {
       background-color: ${theme.colors.ctp.mantle} !important;
@@ -116,6 +112,7 @@ export default defineConfig({
         }, {}),
       },
     }),
+    
   ],
   rules: [
     [

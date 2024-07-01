@@ -509,14 +509,10 @@ Make elements with the HTML hidden attribute stay hidden by default.
     a:hover {
       color: #f38ba8
     }
-    a:not([href*='brain.dayl.in']):not([href^='#']):not([href^='/']):not([href*='localhost']):after {
-      content: '🔗';
-    }
     .markdown {
       color: var(--un-prose-body);
       max-width: 100ch;
-      }
-
+     }
     /* the chroma style uses base which I use for the panel background */
     .highlight code span, .highlight pre, pre, code {
       background-color: #181825 !important;
