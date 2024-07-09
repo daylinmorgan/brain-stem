@@ -5,6 +5,7 @@ import {
   presetUno,
   presetIcons,
   presetTypography,
+  presetAttributify,
 } from "unocss";
 
 const generatePalette = (): { [key: string]: string } => {
@@ -79,6 +80,7 @@ export default defineConfig({
   presets: [
     presetUno(),
     presetIcons(),
+    presetAttributify(),
     presetTypography({
       selectorName: "markdown", // now use like `markdown markdown-gray`, `not-markdown`
       // cssExtend is an object with CSS selector as key and
