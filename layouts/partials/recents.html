@@ -1,11 +1,17 @@
 <div>
-  <h2 class="text-3xl font-mono-casual font-black my-5">Recent Thoughts</h2>
-  <ul class="list-none">
-    {{- range ( site.RegularPages.ByLastmod.Reverse | first (default 10 site.Params.recentThoughtsNum ))}}
+  <h2 text-3xl font-mono-casual font-black my-3>
+    Recent Thoughts
+  </h2>
+  <ul list-none>
+    {{ $pages := site.RegularPages.ByLastmod.Reverse }}
+    {{ with site.Params.recentThoughtsNum }}
+      {{ $pages := first . $pages }} 
+    {{ end }}
+    {{- range $pages }}
   <li>
     <a href="{{ .Permalink }}">{{ .Title }}</a>
     {{ range .Params.tags }}
-    <a href="{{ site.BaseURL}}/tags/{{.}}" class="text-ctp-surfaceone">{{.}}</a>
+      <a href="{{ site.BaseURL}}/tags/{{.}}" text-ctp-surfaceone >{{.}}</a>
     {{ end }}
   </li>
   {{- end }}
