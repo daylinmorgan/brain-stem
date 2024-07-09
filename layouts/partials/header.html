@@ -1,32 +1,33 @@
-<header class="lg:max-w-3xl object-center mx-auto px-1 flex flex-wrap">
-        <span class="i-openmoji-brain inline-block text-4xl flex"></span>
-        <a href ="/" class="my-auto font-bold font-mono-casual grow">{{ .Site.Title }}</a>
-        <label
-            for="menu-toggle"
-            class="cursor-pointer md:hidden flex items-center px-3 py-2"
-        >
-            <svg
-            class="fill-current " xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-            </svg>
-        </label>
-        <input class="hidden" type="checkbox" id="menu-toggle" />
-        <div class="hidden md:flex md:items-center md:w-auto w-full" id="menu">
-        <nav>
-        <ul class="md:flex items-center justify-between text-base py-2">
-            {{ with .Site.Menus.main }}
-                {{ range sort . }}
-                <li>
-                    <a
-                       href="{{ .URL | absLangURL }}"
-                       class="md:p-1 px-0 border-b-2 border-transparent hover:b-ctp-red"
-                    >
-                       {{ .Name }}
-                    </a>
-                </li>
-                {{ end }}
-            {{ end }}
-        </ul>
-        </nav>
-        </div>
+<header lg:max-w-3xl object-center mx-auto px-1 flex flex-wrap justify-between>
+  <div flex flex-row>
+    <span i-openmoji-brain inline-block text-4xl flex></span>
+    <a href ="/" my-auto font-bold font-mono-casual>{{ .Site.Title }}</a>
+  </div>
+  <label
+      for="menu-toggle"
+      cursor-pointer md:hidden flex items-center px-3 py-2
+  >
+      <svg class="fill-current " xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+      <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+      </svg>
+  </label>
+  <input hidden type="checkbox" id="menu-toggle" />
+  <div hidden md:flex md:items-center md:w-auto w-full id="menu">
+  <nav>
+  <ul md:flex items-center justify-between text-base py-2>
+      {{ with .Site.Menus.main }}
+          {{ range sort . }}
+          <li>
+              <a
+                  href="{{ .URL | absLangURL }}"
+                  md:p-1 px-0 border-b-2 border-transparent hover:b-ctp-red
+              >
+                  {{ .Name }}
+              </a>
+          </li>
+          {{ end }}
+      {{ end }}
+  </ul>
+  </nav>
+  </div>
 </header>

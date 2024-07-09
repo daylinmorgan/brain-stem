@@ -1,0 +1,14 @@
+<li flex flex-row>
+    <span text-ctp-surfaceone pr-3> {{ .Lastmod.Format "02 Jan 2006" }}</span>
+    <div>
+
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      {{ range .Params.tags }}
+        <a href="{{ site.BaseURL}}/tags/{{.}}" text-ctp-surfaceone>{{.}}</a>
+      {{ end }}
+
+    </div>
+</li>
+
+
+

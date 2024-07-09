@@ -1,21 +1,13 @@
 {{ define "main" }}
-<div class="bg-ctp-base rounded-md p-4">
-  <div class="markdown">
+<div bg-ctp-base rounded-md p-4>
+  <div markdown>
     {{ .Content }}
   </div>
-  <ul class="list-none">
+  <ul list-none>
     {{ $pages := where .Site.RegularPages "Title" "ne" ""}}
     {{- range $pages.ByLastmod.Reverse}}
-  <li class="flex flex-row">
-    <span class="text-ctp-surfaceone pr-3"> {{ .Lastmod.Format "02 Jan 2006" }}</span>
-    <div>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    {{ range .Params.tags }}
-      <a href="{{ site.BaseURL}}/tags/{{.}}" class="text-ctp-surfaceone">{{.}}</a>
-    {{ end }}
-      </div>
-  </li>
-  {{- end }}
+      {{ partial "note-item.html" .}}
+    {{- end }}
   </ul>
 </div>
 {{ end }}

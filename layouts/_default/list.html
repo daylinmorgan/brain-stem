@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main>
-  <div class="mx-auto bg-ctp-base rounded-md p-4">
-   <h1 class="text-5xl font-bold font-mono-casual">{{ .Title }}</h1>
+  <div mx-auto bg-ctp-base rounded-md p-4>
+   <h1 text-5xl font-bold font-mono-casual>{{ .Title }}</h1>
    <!-- ranges through each of the content files associated with a particular taxonomy term and renders the summary.html content view -->
     {{ range .Pages }}
         {{ .Render "summary"}}
