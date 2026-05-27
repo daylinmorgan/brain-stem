@@ -479,12 +479,12 @@ Make elements with the HTML hidden attribute stay hidden by default.
 .rounded-md,
 [rounded-md=""]{border-radius:0.375rem;}
 .bg-ctp-base,
-[bg-ctp-base=""]{--un-bg-opacity:1;background-color:rgb(30 30 46 / var(--un-bg-opacity));}
+[bg-ctp-base=""]{--un-bg-opacity:1;background-color:rgb(30 30 46 / var(--un-bg-opacity)) /* #1e1e2e */;}
 .bg-ctp-crust,
-[bg-ctp-crust=""]{--un-bg-opacity:1;background-color:rgb(17 17 27 / var(--un-bg-opacity));}
+[bg-ctp-crust=""]{--un-bg-opacity:1;background-color:rgb(17 17 27 / var(--un-bg-opacity)) /* #11111b */;}
 .bg-ctp-mantle,
-[bg-ctp-mantle=""]{--un-bg-opacity:1;background-color:rgb(24 24 37 / var(--un-bg-opacity));}
-.fill-current{fill:currentColor;}
+[bg-ctp-mantle=""]{--un-bg-opacity:1;background-color:rgb(24 24 37 / var(--un-bg-opacity)) /* #181825 */;}
+.fill-current{fill:currentColor /* currentColor */;}
 .object-center,
 [object-center=""]{object-position:center;}
 .p-2,
@@ -516,9 +516,9 @@ Make elements with the HTML hidden attribute stay hidden by default.
 .text-xs,
 [text-xs=""]{font-size:0.75rem;line-height:1rem;}
 .text-ctp-surfaceone,
-[text-ctp-surfaceone=""]{--un-text-opacity:1;color:rgb(69 71 90 / var(--un-text-opacity));}
+[text-ctp-surfaceone=""]{--un-text-opacity:1;color:rgb(69 71 90 / var(--un-text-opacity)) /* #45475a */;}
 .text-ctp-text,
-[text-ctp-text=""]{--un-text-opacity:1;color:rgb(205 214 244 / var(--un-text-opacity));}
+[text-ctp-text=""]{--un-text-opacity:1;color:rgb(205 214 244 / var(--un-text-opacity)) /* #cdd6f4 */;}
 .font-black,
 [font-black=""]{font-weight:900;}
 .font-bold,
