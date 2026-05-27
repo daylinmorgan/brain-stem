@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div bg-ctp-base rounded-md p-4>
+<div relative bg-ctp-base rounded-md p-4>
 
 <div markdown>
   <h1 font-mono-casual font-black>
@@ -14,6 +14,11 @@
 
 {{ if isset .Params "book" }}
 {{ partial "book.html" . }}
+{{ end }}
+
+{{ with .File }}
+<a class="link absolute bottom-2 right-3 text-xs font-mono"
+   href="/graph/?node={{ .ContentBaseName }}">view in graph</a>
 {{ end }}
 
 </div>

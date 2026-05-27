@@ -19,17 +19,24 @@ div.tooltip {
   padding: 2px;
   font: 12px sans-serif;
   background:#1e1e2e;
-  border: 5px;
+  border: 1px solid #6c7086;
   border-radius: 8px;
   pointer-events: none;
 }
 </style>
 {{ end }}
 {{ define "main" }}
-<div id="graph" h-full w-full bg-ctp-base rounded-md p-4>
+<div id="graph" relative h-full w-full bg-ctp-base rounded-md p-4>
+<button id="clear-active" type="button" hidden
+  class="absolute top-2 right-2 px-2 py-1 text-xs rounded bg-ctp-surface0 text-ctp-text hover:bg-ctp-surface1">
+  clear pinned node
+</button>
 <div class="tooltip"></div>
 
 </div>
+<p text-xs text-ctp-subtext0 mt-2 text-center>
+  tip: double-click a node to open that note &middot; double-click the background to shuffle/reset the graph
+</p>
 
 {{ end }}
 {{ define "footer"}}
